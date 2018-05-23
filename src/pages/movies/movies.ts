@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MoiveProvider } from '../../providers/moive/moive';
+import { MovieProvider } from '../../providers/movie/movie';
 
 /**
  * Generated class for the MoviesPage page.
@@ -14,19 +14,17 @@ import { MoiveProvider } from '../../providers/moive/moive';
   selector: 'page-movies',
   templateUrl: 'movies.html',
   providers: [
-    MoviesPage
+    MovieProvider
   ]
 })
 export class MoviesPage {
   public lista_filmes = Array<any>();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public movieProvider: MovieProvider) {
 
-  constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public movieProvider: MoiveProvider) {
   }
 
   ionViewDidLoad() {
-    this.movieProvider.getLatesMovies().subscribe(
+    this.movieProvider.getPopularMovies().subscribe(
       data => {
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
@@ -36,6 +34,7 @@ export class MoviesPage {
         console.log(error);
       }
     )
+    console.log('ionViewDidLoad MoviesPage');
   }
 
 }

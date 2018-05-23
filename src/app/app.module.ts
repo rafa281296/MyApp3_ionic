@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { MoiveProvider } from '../providers/moive/moive';
+import { MovieProvider } from '../providers/movie/movie';
 import { MoviesPageModule } from '../pages/movies/movies.module';
 import {HttpModule} from "@angular/http"
 
@@ -30,7 +30,7 @@ import {HttpModule} from "@angular/http"
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MoiveProvider
+    MovieProvider
   ]
 })
 export class AppModule {}
