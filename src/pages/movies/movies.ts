@@ -18,6 +18,7 @@ import { MoiveProvider } from '../../providers/moive/moive';
   ]
 })
 export class MoviesPage {
+  public lista_filmes = Array<any>();
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,6 +30,7 @@ export class MoviesPage {
       data => {
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
+        this.lista_filmes = objeto_retorno.results;
         console.log(objeto_retorno);
       }, error => {
         console.log(error);
